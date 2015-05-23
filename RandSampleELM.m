@@ -30,11 +30,7 @@ function [TrainingTime, TestingTime, TrainingAccuracy, TestingAccuracy] = RandSa
 % Sample1 regression: [TrainingTime, TestingTime, TrainingAccuracy, TestingAccuracy] = elm('sinc_train', 'sinc_test', 0, 20, 'sig')
 % Sample2 classification: elm('diabetes_train', 'diabetes_test', 1, 20, 'sig')
 %
-    %%%%    Authors:    MR QIN-YU ZHU AND DR GUANG-BIN HUANG
-    %%%%    NANYANG TECHNOLOGICAL UNIVERSITY, SINGAPORE
-    %%%%    EMAIL:      EGBHUANG@NTU.EDU.SG; GBHUANG@IEEE.ORG
-    %%%%    WEBSITE:    http://www.ntu.edu.sg/eee/icis/cv/egbhuang.htm
-    %%%%    DATE:       APRIL 2004
+
 
 %%%%%%%%%%% Macro definition
 REGRESSION=0;
@@ -201,16 +197,13 @@ clear tempH;                                        %   Release the temparary ar
 
 %%%%%%%%%%% Calculate output weights OutputWeight (beta_i)
 if  C == 10 ^ 100
-    OutputWeight=pinv(H') * T';                        % implementation without regularization factor //refer to 2006 Neurocomputing paper
-%OutputWeight=inv(eye(size(H,1))/C+H * H') * H * T';   % faster method 1 //refer to 2012 IEEE TSMC-B paper
+    OutputWeight=pinv(H') * T';                        % implementation without regularization factor 
+%OutputWeight=inv(eye(size(H,1))/C+H * H') * H * T';   
 %implementation; one can set regularizaiton factor C properly in classification applications 
 else
-    OutputWeight=(eye(size(H,1))/C+H * H') \ H * T';      % faster method 2 //refer to 2012 IEEE TSMC-B paper
+    OutputWeight=(eye(size(H,1))/C+H * H') \ H * T';      
 %implementation; one can set regularizaiton factor C properly in classification applications
 end
-%If you use faster methods or kernel method, PLEASE CITE in your paper properly: 
-
-%Guang-Bin Huang, Hongming Zhou, Xiaojian Ding, and Rui Zhang, "Extreme Learning Machine for Regression and Multi-Class Classification," submitted to IEEE Transactions on Pattern Analysis and Machine Intelligence, October 2010. 
 
 end_time_train=cputime;
 TrainingTime=end_time_train-start_time_train;        %   Calculate CPU time (seconds) spent for training ELM
