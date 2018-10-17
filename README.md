@@ -5,4 +5,4 @@ http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6889761&tag=1
 
 Constrained Extreme Learning Machines: A Study on Classification Cases, arXiv 2015. http://arxiv.org/abs/1501.06115
 
-Feel free to discuss and contact me!
+Feel free to discuss with and contact me!
